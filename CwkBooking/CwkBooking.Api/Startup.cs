@@ -1,8 +1,10 @@
 using CwkBooking.Api.Middleware;
+using CwkBooking.Dal;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -30,8 +32,10 @@ namespace CwkBooking.Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CwkBooking.Api", Version = "v1" });
             });
-            services.AddSingleton<DataSource>();
             services.AddHttpContextAccessor();
+
+            var cs = Configuration.GetConnectionString("Default");
+            services.AddDbContext<DataContext>(options => options.UseSqlServer(cs));
 
         }
 
@@ -55,8 +59,6 @@ namespace CwkBooking.Api
 
             app.UseEndpoints(endpoints =>
             {
-                //Api/hotels
-                //HttPget
                 endpoints.MapControllers();
             });
         }
