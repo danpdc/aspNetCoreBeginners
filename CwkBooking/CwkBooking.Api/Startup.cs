@@ -36,6 +36,7 @@ namespace CwkBooking.Api
 
             var cs = Configuration.GetConnectionString("Default");
             services.AddDbContext<DataContext>(options => options.UseSqlServer(cs));
+            services.AddAutoMapper(typeof(Startup));
 
         }
 
@@ -55,7 +56,7 @@ namespace CwkBooking.Api
 
             app.UseAuthorization();
 
-            app.UseDateTimeHeader();
+            //app.UseDateTimeHeader();
 
             app.UseEndpoints(endpoints =>
             {
