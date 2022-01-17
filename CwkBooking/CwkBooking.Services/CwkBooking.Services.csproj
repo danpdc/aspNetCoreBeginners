@@ -4,4 +4,9 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CwkBooking.Dal\CwkBooking.Dal.csproj" />
+    <ProjectReference Include="..\CwkBooking.Domain\CwkBooking.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\CwkBooking.Dal\CwkBooking.Dal.csproj" />
     <ProjectReference Include="..\CwkBooking.Domain\CwkBooking.Domain.csproj" />
+    <ProjectReference Include="..\CwkBooking.Services\CwkBooking.Services.csproj" />
   </ItemGroup>
 
   <ItemGroup>
