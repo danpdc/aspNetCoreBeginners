@@ -50,6 +50,11 @@ namespace CwkBooking.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateHotel([FromBody] HotelCreateDto hotel)
         {
+            if (ModelState.IsValid)
+            {
+                //if the model state is valid, then we want to do something
+            }
+            
             var domainHotel = _mapper.Map<Hotel>(hotel);
 
             await _hotelsRepo.CreateHotelAsync(domainHotel);
